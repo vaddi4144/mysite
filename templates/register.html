@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% block content %}
+    <div class="container mt-5 fs-5">
+        <div class="row">
+            <div class="col-md-4 offset-4">
+                <h3 class="text-danger-emphasis text-center">Register</h3>
+                <form method="post" class="p-3 mb-2 bg-secondary text-white" action="{% url 'users:register' %}">
+                  {% csrf_token %}
+                    <div class="col-mb-3">
+                      <label for="id_name" class="form-label">Name</label>
+                      <input type="text" class="form-control" id="id_name" name="name" placeholder="Enter your name" required>
+                    </div>
+                    <div class="col-mb-3">
+                      <label for="email" class="form-label">email</label>
+                      <input type="email" class="form-control" placeholder="Enter your email" name="email" required>
+                    </div>
+                    <div class="col-mb-3">
+                      <label for="id_mobile" class="form-label">Mobile</label>
+                      <input type="number" class="form-control" id="id_mobile" name="Mobile" placeholder="Enter for Mobile number" required>
+                    </div>
+                    <div class="col-mb-3">
+                      <label for="id_password" class="form-label">Password</label>
+                      <input type="password" class="form-control" id="id_password" name="password" placeholder="Enter password" required>
+                    </div>
+                    <div class="col-mb-3">
+                        <label for="id_confirm_password" class="form-label">Confirm Password</label>
+                        <input type="password" class="form-control" id="id_confirm_password" name="password" placeholder="Enter confirm password" required>
+                    </div>
+                    <input type="submit" class="btn btn-primary w-100 mt-3" value="Register">
+                  </form>
+            </div>
+
+        </div>
+   </div>
+{% endblock %}
+     

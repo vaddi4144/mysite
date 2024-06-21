@@ -1,0 +1,23 @@
+{% extends 'dashboard/base.html' %}
+{% block content %}
+    <h3 class="text-danger-emphasis">Assign Task</h3>
+    <form method="post">
+    {% csrf_token %}
+    <div class="mb-3">
+        <label for="task_name" class="form-label">Task Name</label>
+        <input type="text" class="form-control" id="task_name" placeholder="Enter a task" name="task">
+    </div>
+    <div class="mb-3">
+        <label for="task_name" class="form-label">Task Assigned To</label>
+        <select class="form-select" aria-label="Default select example" name="assign_to">
+            <option selected>Select User to assign Task</option>
+            {% for user in users %}
+            <option value="{{user.id}}">{{user.name}} ({{user.email}})</option>
+            {% endfor %}
+          </select>
+    </div>
+    <div class="mb-3">
+        <input type="submit" class="btn btn-primary w-100" value="Assign">
+    </div>
+</form>
+{% endblock %}
